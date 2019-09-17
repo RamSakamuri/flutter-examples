@@ -1,0 +1,142 @@
+// importing this package gives us the dart widgets
+// as well as the Material Theme widgets
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+// the main() function is the starting point for every Flutter project
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight])
+      .then((_) {
+    runApp(MaterialApp(title: "Make it Rain!", home: new RowColumnLayoutApp()));
+  });
+}
+
+class RowColumnLayoutApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+// The AppBar property takes a Text widget for its title property
+        title: Text("Exploring Widgets"),
+      ),
+      body: myWidget(context),
+    );
+  }
+
+  Widget myWidget(BuildContext context) {
+    return Row(children: <Widget>[
+      Expanded(
+        flex: 3,
+        child: new Container(
+          padding: new EdgeInsets.only(left: 8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(9.0),
+                    decoration: new BoxDecoration(
+                        border: new Border.all(color: Colors.black)),
+                    child: Text(
+                      "Strawberry Polavane",
+                      style: new TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  )),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  padding: const EdgeInsets.all(9.0),
+                  decoration: new BoxDecoration(
+                      border: new Border.all(color: Colors.black)),
+                  child: Text(
+                    "cgcgc jhjhjh uyyuy hgg gfgf jfgfgtcgh"
+                        "gfgfhgf hjhgjhgjh"
+                        "jhkjhkjhjhkhkjhkjhkjhjhj",
+                    style: new TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 10.0,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                    padding: const EdgeInsets.all(9.0),
+                    decoration: new BoxDecoration(
+                        border: new Border.all(color: Colors.black)),
+                    child: Text("*******     7 Reviews")),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: Container(
+                      padding: const EdgeInsets.all(4.0),
+                      decoration: new BoxDecoration(
+                          border: new Border.all(color: Colors.blue)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 2),
+                        child: Row(
+
+                          children: <Widget>[
+                            Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Icon(Icons.view_list),
+                                  Text("Prep: "),
+                                  Text("25 mins"),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(Icons.timer),
+                                    Text("COOK: "),
+                                    Text("1 hr")
+                                  ],
+                                )),
+                            Expanded(
+                                child: Column(
+                                  children: <Widget>[
+                                    Icon(Icons.restaurant),
+                                    Text("FEEDS: "),
+                                    Text("4-6 mins"),
+                                  ],
+                                )),
+                          ],
+                        ),
+                      )),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Expanded(
+          flex: 7,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              new Container(
+                  constraints: BoxConstraints.expand(
+                      height: 300.0
+                  ),
+                  decoration: BoxDecoration(color: Colors.green),
+                  child: Image.asset('assets/images/pavlova.jpg',
+                      fit:  BoxFit.cover)),
+            ],
+          ))
+    ]);
+  }
+}
